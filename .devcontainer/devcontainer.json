@@ -4,7 +4,7 @@
     "ghcr.io/shyim/devcontainers-features/symfony-cli:0": {},
     "ghcr.io/shyim/devcontainers-features/php:0": {
       "version": "8.2"
-    },
+    }
   },
   "updateContentCommand": {
     "composer install": ["composer", "install"],
@@ -13,5 +13,9 @@
   "postAttachCommand": {
     "server": "symfony server:start",
     "sass build": ["symfony", "console", "sass:build", "-w"]
-  }
+  },
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [8000, 3306]
 }
