@@ -6,21 +6,19 @@
     "ghcr.io/shyim/devcontainers-features/php:0": {
       "version": "8.2"
     },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/mysql:1": {
-      "version": "mariadb-10.6"
-    }
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "updateContentCommand": {
     "composer install": ["composer", "install"],
     "importmap:install": ["symfony", "console", "importmap:install"]
   },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y mariadb-server && sudo service mysql start",
   "postAttachCommand": {
     "server": "symfony server:start",
     "sass build": ["symfony", "console", "sass:build", "-w"]
   },
   "forwardPorts": [8000, 3306],
   "containerEnv": {
-    "DATABASE_URL": "mysql://root:mariadb@localhost:3306/mydatabase"
+    "DATABASE_URL": "mysql://root:@localhost:3306/mydatabase"
   }
 }
