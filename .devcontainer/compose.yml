@@ -1,0 +1,11 @@
+services:
+  db:
+    image: chainguard/mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: bloktra
+    volumes:
+      - db-data:/var/lib/mysql
+      
+volumes:
+  db-data:
