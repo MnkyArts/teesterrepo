@@ -5,7 +5,7 @@
     "ghcr.io/shyim/devcontainers-features/php:0": {
       "version": "8.2"
     },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
   "updateContentCommand": {
     "composer install": ["composer", "install"],
@@ -15,11 +15,11 @@
     "server": "symfony server:start",
     "sass build": ["symfony", "console", "sass:build", "-w"]
   },
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
-  "workspaceFolder": "/workspace",
-  "forwardPorts": [8000, 3306],
+  "runArgs": ["--network=host"],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
   "containerEnv": {
-    "DATABASE_URL": "mysql://root:mariadb@db:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
+    "DATABASE_URL": "mysql://root:mariadb@localhost:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
   }
 }
