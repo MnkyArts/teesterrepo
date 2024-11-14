@@ -15,7 +15,6 @@ services:
     image: phpmyadmin/phpmyadmin
     links:
       - db:db
-    ports:
     environment:
       PMA_HOST: db
       UPLOAD_LIMIT: 32M
