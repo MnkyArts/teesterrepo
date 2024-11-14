@@ -1,4 +1,5 @@
 {
+  "dockerComposeFile": "compose.yml",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/shyim/devcontainers-features/symfony-cli:0": {},
