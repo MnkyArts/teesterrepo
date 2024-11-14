@@ -1,15 +1,14 @@
 version: '3.8'
+
 services:
   app:
-    build:
+    build: 
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ..:/workspace:cached
+      - ../..:/workspace:cached
     command: sleep infinity
     network_mode: service:db
-    depends_on:
-      - db
 
   db:
     image: mariadb:10.11
@@ -17,10 +16,10 @@ services:
     volumes:
       - mariadb-data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: symfony
-      MYSQL_USER: symfony
-      MYSQL_PASSWORD: symfony
+      MYSQL_ROOT_PASSWORD: mariadb
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app
 
 volumes:
   mariadb-data:
