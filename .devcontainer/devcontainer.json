@@ -9,7 +9,7 @@
       "version": "8.2"
     }
   },
-  "forwardPorts": [8000, 3306],
+  "forwardPorts": [8000, 3306, 8080],
   "updateContentCommand": {
     "composer install": ["composer", "install"],
     "importmap:install": ["symfony", "console", "importmap:install"]
