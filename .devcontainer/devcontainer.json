@@ -6,6 +6,5 @@
     "ghcr.io/shyim/devcontainers-features/php:0": {
       "version": "8.2"
     }
-  },
-  "forwardPorts": [8000, 3306, 8080]
+  }
 }
